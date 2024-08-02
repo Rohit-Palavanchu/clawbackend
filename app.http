@@ -1,0 +1,48 @@
+### Register a new user
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword"
+}
+
+### Login a user
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword"
+}
+
+### Create a new todo (requires authentication)
+POST http://localhost:3000/api/todos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzIyNjA2NzIwLCJleHAiOjE3MjI2MTAzMjB9.ZaNTfNqyv8ThVUejrgdjBSXLRUovk4Psmlo-wBYx88s
+
+{
+  "title": "New Todo",
+  "description": "Description of the new todo"
+}
+
+### Get all todos (requires authentication)
+GET http://localhost:3000/api/todos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzIyNjA2NzIwLCJleHAiOjE3MjI2MTAzMjB9.ZaNTfNqyv8ThVUejrgdjBSXLRUovk4Psmlo-wBYx88s
+
+### Update an existing todo (requires authentication)
+PUT http://localhost:3000/api/todos/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzIyNjA2NzIwLCJleHAiOjE3MjI2MTAzMjB9.ZaNTfNqyv8ThVUejrgdjBSXLRUovk4Psmlo-wBYx88s
+
+{
+  "title": "Updated Todo",
+  "description": "hi"
+}
+
+### Delete a todo (requires authentication)
+DELETE http://localhost:3000/api/todos/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzIyNjA2NzIwLCJleHAiOjE3MjI2MTAzMjB9.ZaNTfNqyv8ThVUejrgdjBSXLRUovk4Psmlo-wBYx88s
+
+### Get all user sessions
+GET http://localhost:3000/api/sessions
